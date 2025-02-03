@@ -1,1 +1,83 @@
+Variable: Es un lugar en la memoria en el que se almacena un tipo de dato como contenido
+
+Calcular el tiempo de ejecucion que tardara un codigo:
+las operaciones aritmeticologicas se calculan en 1 unidad de tiempo para cada una de ellas(suma,resta,multiplicacion,
+division,div,mod,asignacion) 
+
+Estructuras de control(if,else,while,for,..) 
+
+Calcular su tiempo de ejecucion IF:
+IF: Se evalua lo que tarda la comprobacion + el tiempo del cuerpo, si hubiera un else se evalua cada uno por separado y
+se toma el que mas memoria ocupe
+
+IF ( x > n ) AND ( y < x ) 
+la condicion tiene una comprobacion (x mayor que n) por lo que tarda 1UT a esto le sumamos otra 
+UT por el and que une ambas comprobaciones y por ultimo le sumamos 1UT adicional por la comprobacion (y menor que x) por lo
+que la condicion de este IF nos tomara 3UT en completarse
+
+Cuerpo del if:
+x := x + 1 
+Esta linea de codigo nos tomara 2UT ya que tenemos una asignacion (x:=...) y una suma (x+1)
+
+ELSE
+x := x + 1;
+y := x - 4;
+Cada una de estas lineas nos tomara 2 UT ya que en ambas tenemos una asignacion (x:=...)(y:=...) y una suma o resta (x+1)
+(x-4) por lo que el cuerpo del ELSE nos tomara 4UT
+
+Por lo que ahora elegimos el cuerpo que tuvo mayor consumo de memoria que en este caso fue el ELSE y lo sumamos a lo que
+tomo la condicion 
+CONDICION: 3UT  + CUERPO DEL ELSE: 4UT = 7UT esto es lo que consumio de memoria nuestra condicion de IF
+
+Calcular Tiempo de Ejecucion FOR:
+FOR i:= 0 to 10 
+Para calcular la memoria que consume un bucle for debemos calcular primero cuantas veces se realizara este, para lo cual
+haremos el limite superior menos el limite inferior mas uno, de esta forma calculamos la cantidad de vueltas que dara nuestro
+bucle for, en este caso hariamos (10 - 0) + 1 = 11, once veces recorreremos este bucle, por lo que ahora teniendo este dato
+lo llamaremos N es decir N = 11.
+Ahora utilizaremos la formula para calcular el tiempo de ejecucion de un bucle for 
+  ((3 * N) + 2) + (N *( Cuerpo del for ))
+
+Cuerpo del FOR
+x := x + 1;
+Para esta linea de codigo utilizaremos 2UT una para la asignacion (x:=...) y otra para la suma (x+1)
+
+Por lo que ahora podriamos reemplazar nuestros valores en la formula y resolver.
+  ((3 * 11) + 2) + (11 * 2)
+      (33 + 2) + 22
+          35 + 22
+             57
+Como resultado nuestro bucle FOR tomara 57 unidades de tiempo en ejecutarse.
+
+Calcular Tiempo de Ejecucion WHILE:
+x := 0;
+WHILE ( x < 5)
+Para calcular el tiempo de ejecucion de un bucle while debemos tambien utilizar una formula, en la que calcularemos la 
+condicion, la cantidad de veces que se ejecuta el bucle y la memoria que consume el cuerpo. Primero conozcamos la formula
+para calcular la cantidad de memoria que consume este bucle.
+  C * (N + 1) + N * (Cuerpo del while)  
+
+"C" va a ser nuestra condicion, en este caso solo valdra 1 UT ya que es una operacion logica '<' 
+
+"N" al calcular N tenemos que tener en cuenta si conocemos o no todos los valores, ya que en este caso tenemos una 
+variable 'x'. Por suerte antes de aparecer el bucle while tenemos la asignacion de esta variable 'x' asignandole el valor
+de cero, por lo que ahora calcularemos la cantidad de veces que se repite este bucle restando el limite superior menos el
+limite inferior, en este caso (5 - 0) = 5 nuestro N vale 5 unidades de tiempo. (Si en algun caso no conocemos el valor de
+alguna de nuestras variables, dejamos N como una incognita en nuestra ecuacion y resolvemos hasta donde podamos dejando N
+sin descubrir)
+
+Cuerpo del WHILE
+x := x + 1;
+En esta linea de codigo utilizaremos solo 2 UT 
+
+Reemplazemos en la Formula
+  1 * (5 + 1) + 5 * (2)
+        6 + 10
+          16
+Este bucle WHILE tomara 16 UT en completarse.
+
+
+
+
+
 
