@@ -101,8 +101,56 @@ Reemplazo en la Formula
 Este bucle tiene un coste de 20UT
 
 
+ALOCACIONES DE MEMORIA DINAMICA Y ESTATICA
 
+VALORES DE CADA UNO DE LOS TIPOS DE VARIABLES
+Valores que ocupan en la Memoria Estatica (ME)
+Char     |   1 byte
+Boolean  |   1 byte
+Integer  |   6 bytes
+Real     |   8 bytes
+String   |   Tamaño + 1 (sino se especifica el tamaño es 255 + 1)
+Subrango |   Depende el tipo
+Registro |   La suma de sus campos
+Vector   |   Dimensión física * tipo elemento
+Puntero  |   4 bytes , pero puede reservar memoria dinámica para su contenido la cantidad depende del tipo de dato
 
+MEMORIA ESTATICA: consideraremos sólo las variables locales,variables globales de programa y constantes.
+MEMORIA DINAMICA: consideraremos sólo cuando en la ejecución de un programa se reserva o libera memoria.
+
+Ejemplo
+Program uno;
+Const
+ DF = 10; (Siempre calculamos el valor de las constantes)
+Type
+  puntero = ^real;
+  persona = record
+   nombre:string[20];
+   dni:integer;
+  end;
+ puntPer = ^persona;
+
+ Var
+ P: puntero
+ R:real; Q:char;
+ per: puntPer;
+ perso:persona; 
+Begin
+  new(P);
+
+Como tenemos una constante entera esta valdra 4 bytes, ademas de esto solo contaremos la memoria que ocupan las variables
+cuando son declaradas en el apartado de var, no cuando son definidas en type eso solo nos dira que tipo de valor ocupa
+
+MEMORIA ESTATICA
+  DF = 4 bytes (entero)
+  P = 4 bytes (puntero)
+  R = 8 bytes (real)
+  Q = 1 byte (char)
+  Per = 4 bytes (puntero)
+  Perso = 21 bytes (String) + 4 bytes (entero) = 25 bytes
+
+MEMORIA DINAMICA
+  P = 8 bytes (real) (reserva esos bytes ya que se toma el valor al que apunta el puntero, que en ese caso es un real)
 
 
 
