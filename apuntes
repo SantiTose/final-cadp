@@ -76,6 +76,32 @@ Reemplazemos en la Formula
           16
 Este bucle WHILE tomara 16 UT en completarse.
 
+Calcular tiempo de ejecucion REPEAT UNTIL:
+Es muy similar al WHILE, tendremos que calcular la condicion, la cantidad de veces que se repite y el cuerpo del codigo
+veamos la formula para calcular la cantidad de memoria que consume este bucle.
+  C * (N) + (N * (Cuerpo del codigo)
+
+aux:=0;
+REPEAT
+UNTIL (aux > 5)
+Como podemos ver esta condicion se repetira hasta que aux supere el valor de 5, por lo que este bucle se repetira 5 veces
+tambien debemos considerar que la condicion equivale a 1 UT por lo que con esta informacion reemplazamos los valores de
+N = 5 y de C = 1
+
+Cuerpo del REPEAT UNTIL:
+x := aux;
+aux := aux + 1;
+El cuerpo tendra un valor de 3 UT por lo visto anteriormente
+
+Reemplazo en la Formula
+
+  1 * (5) + 5 * (3)
+        5 + 15
+           20
+Este bucle tiene un coste de 20UT
+
+
+
 
 
 
